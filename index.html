@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CARROS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="./bootstrap-4.0.0/assets/css/bootstrap.min.css" />
+  <style type="text/css">
+    .title{
+      text-align: center;
+    }
+    label{
+      font-weight: bold;
+    }
+
+    .colCadastro{
+       margin-right: 80px;
+    }
+    th{
+      text-align: center;
+      width: 110px;
+      height: 50px;
+      line-height: 20px
+    }
+
+    td{
+      width: 100px;
+      height: 62px;
+      text-align: center;
+      line-height: 90px;
+    }
+
+    img{
+      max-width: 100px;
+      height: auto;
+    }
+  </style>
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col align-self-center title">
+        <h1 data-js="company-name"></h1>
+        <h5 data-js="company-phone"></h5>
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-4 colCadastro">
+            <div>
+              <h2>Cadastro de carros</h2>
+            </div>
+            <form class="form-group" data-js="formCadastro" method="GET" action="#">
+                <div class="form-group row">
+                  <label for="inputImage" class="col-sm-2 col-form-label">Imagem: </label>
+                  <input type="url" data-js="inputImagem" class="form-control" required id="inputImage" placeholder="digite url">
+                </div>
+                <div class="form-group row">
+                  <label for="inputMarcaModelo" class="col-sm-2 col-form-label">Marca/Modelo:</label>
+                  <input type="text" data-js="inputMarcaModelo" class="form-control" required id="inputMarcaModelo" placeholder="Marca - Modelo">
+                </div>
+                <div class="form-group row">
+                  <label for="inputAno" class="col-sm-2 col-form-label">Ano:</label>
+                  <input type="text" data-js="inputAno" class="form-control" required id="inputAno" placeholder="Digite o ano">
+                </div>
+                <div class="form-group row">
+                  <label for="inputPlaca" class="col-sm-2 col-form-label">Placa:</label>
+                  <input type="text" data-js="inputPlaca" class="form-control" required id="inputPlaca" placeholder="Digite a placa">
+                </div>
+                <div class="form-group row">
+                  <label for="inputCor" class="col-sm-2 col-form-label">Cor:</label>
+                  <input type="text" data-js="inputCor" class="form-control" required id="inputCor" placeholder="digite a cor">
+                </div>
+                <div class="form-group row">
+                  <button type="submit" class="btn btn-primary" data-js="buttonSubmit">Cadastrar</button>
+                </div>
+            </form>
+
+      </div>
+      <div class="col">
+        <table class="table table-hover">
+          <thead>
+                <tr>
+                  <th scope="col">Imagem</th>
+                  <th scope="col">Marca/Modelo</th>
+                  <th scope="col">Ano</th>
+                  <th scope="col">Placa</th>
+                  <th scope="col">Cor</th>
+                </tr>
+          </thead>
+          <tbody data-js="tbody">
+
+          </tbody>
+
+        </table>
+        <h1 data-js="statusTable" style="text-align: center"></h1>
+      </div>
+    </div>
+  </div>
+
+  <script src="DOM.js"></script>
+  <script src="challenge-29.js"></script>
+  <script type="text/ value=" src="./bootstrap-4.0.0/assets/js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./bootstrap-4.0.0/assets/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
