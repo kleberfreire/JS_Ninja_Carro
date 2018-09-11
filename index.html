@@ -35,6 +35,16 @@
       max-width: 100px;
       height: auto;
     }
+
+    .div-buttons{
+      display: flex;
+      justify-content: center;
+    }
+
+    .button-editar{
+      margin-right: 20px;
+    }
+    
   </style>
 
 
@@ -96,10 +106,17 @@
           <tbody data-js="tbody">
 
           </tbody>
-
+         
         </table>
         <h1 data-js="statusTable" style="text-align: center"></h1>
+        <br>
+        <div class="div-buttons">
+          <button data-js="button-editar" class="btn btn-primary button-editar ">editar</button>   
+          <button data-js="button-excluir" class="btn btn-primary button-table ">excluir</button>
+        </div>
+       
       </div>
+      
     </div>
   </div>
 
