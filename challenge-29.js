@@ -3,14 +3,15 @@
 
  
   let app = (function() {
-    let $imagem = DOM('[data-js="inputImagem"]');
-    let $modeloMarca = DOM('[data-js="inputMarcaModelo"]');
-    let $ano = DOM('[data-js="inputAno"]');
-    let $placa = DOM('[data-js="inputPlaca"]');
-    let $cor = DOM('[data-js="inputCor"]');
-    let $form = DOM('[data-js="formCadastro"]');
-    let $corpoTabela = DOM('[data-js="tbody"]')
-    let $status = DOM('[data-js="statusTable"]');
+    const $imagem = DOM('[data-js="inputImagem"]');
+    const $modeloMarca = DOM('[data-js="inputMarcaModelo"]');
+    const $ano = DOM('[data-js="inputAno"]');
+    const $placa = DOM('[data-js="inputPlaca"]');
+    const $cor = DOM('[data-js="inputCor"]');
+    const $form = DOM('[data-js="formCadastro"]');
+    const $corpoTabela = DOM('[data-js="tbody"]')
+    const $status = DOM('[data-js="statusTable"]');
+
 
     let allCamposForm = [$imagem, $modeloMarca, $ano, $placa, $cor]
 
@@ -56,6 +57,15 @@
 
       },
 
+      handleDelete: function handleDelete(){
+        console.log('clicou deletar')
+      },
+
+      handleEditar: function handleEditar(){
+        console.log('clicou editar')
+
+      },
+
       createImgTable: function createImgTable(item) {
         let $fragmentImage = doc.createDocumentFragment()
         let $imgImagem = doc.createElement('img')
@@ -63,6 +73,7 @@
         $fragmentImage.appendChild($imgImagem);
         return $fragmentImage
       },
+
       createTable: function createTable() {
         let fragamentTable = doc.createDocumentFragment();
         let trTable = doc.createElement('tr')
@@ -76,11 +87,30 @@
           trTable.appendChild(tdTable);
           item.get().value = '';
         })
+        let tdButton = doc.createElement('td')
+        let buttonEditar = doc.createElement('button')
+        let buttonDelete = doc.createElement('button')
+        buttonEditar.setAttribute('class', 'btn btn-warning')
+        buttonEditar.setAttribute('data-js','button-editar')
+        buttonEditar.setAttribute('value','Editar')
+        buttonDelete.setAttribute('class', 'btn btn-danger')
+        buttonDelete.setAttribute('data-js', 'button-excluir')
+        buttonDelete.setAttribute('value','Excluir')
+        buttonEditar.textContent = 'Editar'
+        buttonDelete.textContent = 'Excluir'
+        tdButton.setAttribute('class', 'buttons-table')
+        
+        tdButton.appendChild(buttonEditar)
+        tdButton.appendChild(buttonDelete)
+        trTable.appendChild(tdButton)
+
+
 
         fragamentTable.appendChild(trTable)
         $corpoTabela.get().appendChild(fragamentTable)
 
       },
+
 
       
 
