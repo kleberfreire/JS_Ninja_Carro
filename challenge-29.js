@@ -26,6 +26,19 @@
         $form.on('submit', this.handleSubmit, false)
       },
 
+      initEventsButton: function initEventsButton(){
+        const $buttonEditar = DOM('[data-js="button-editar"]')
+        const $buttonDelete = DOM('[data-js="button-excluir"]')
+        $buttonEditar.forEach((item)=>{
+          item.addEventListener('click',app.handleEditar,false)
+        })
+
+        $buttonDelete.forEach((item)=>{
+          item.addEventListener('click',app.handleExcluir,false)
+        })
+
+      },
+
       companyInfor: function companyInfor() {
         let ajax = new XMLHttpRequest();
         ajax.open("GET", "http://localhost/JS_Ninja_Carro/company.json", true);
@@ -57,12 +70,12 @@
 
       },
 
-      handleDelete: function handleDelete(){
-        console.log('clicou deletar')
-      },
+      handleExcluir: function handleDelete(){
+        let pai = this.parentNode.parentNode.parentNode
+        let filho = this.parentNode.parentNode
+        pai.removeChild(filho)
 
-      handleEditar: function handleEditar(){
-        console.log('clicou editar')
+        app.statusTable();
 
       },
 
@@ -88,26 +101,19 @@
           item.get().value = '';
         })
         let tdButton = doc.createElement('td')
-        let buttonEditar = doc.createElement('button')
         let buttonDelete = doc.createElement('button')
-        buttonEditar.setAttribute('class', 'btn btn-warning')
-        buttonEditar.setAttribute('data-js','button-editar')
-        buttonEditar.setAttribute('value','Editar')
+      
         buttonDelete.setAttribute('class', 'btn btn-danger')
         buttonDelete.setAttribute('data-js', 'button-excluir')
-        buttonDelete.setAttribute('value','Excluir')
-        buttonEditar.textContent = 'Editar'
         buttonDelete.textContent = 'Excluir'
         tdButton.setAttribute('class', 'buttons-table')
         
-        tdButton.appendChild(buttonEditar)
         tdButton.appendChild(buttonDelete)
         trTable.appendChild(tdButton)
 
-
-
         fragamentTable.appendChild(trTable)
         $corpoTabela.get().appendChild(fragamentTable)
+        this.initEventsButton()
 
       },
 
