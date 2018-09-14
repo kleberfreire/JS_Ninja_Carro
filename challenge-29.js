@@ -1,7 +1,6 @@
 (function(DOM, win, doc) {
   'use strict';
 
- 
   let app = (function() {
     const $imagem = DOM('[data-js="inputImagem"]');
     const $modeloMarca = DOM('[data-js="inputMarcaModelo"]');
